@@ -6,6 +6,10 @@
 
 {% block content %}
 
+  {{ govukBackLink({
+    text: "Back",
+    href: "/"
+  }) }}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
@@ -16,7 +20,7 @@
 
       <ul class="govuk-list govuk-list--bullet">
         <li>
-          <a href="/add-employee">Add new employee</a>
+          <a href="/hr/add-employee">Add new employee</a>
         </li>
         <li>
           <a href="/hr/generate-report">Generate employee report</a>

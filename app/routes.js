@@ -12,11 +12,11 @@ router.get('/hr/generate-report', async (req, res) => {
     res.render('hr-generate-report', {employees: await employeeData.getEmployees()}); 
 });
 
-router.get('/add-employee', async (req, res) => {
-    res.render('newemployee');
+router.get('/hr/add-employee', async (req, res) => {
+    res.render('new-employee');
 });
     
-router.post('/add-employee', async (req, res) => {
+router.post('/hr/add-employee', async (req, res) => {
     
     var employee = req.body
     console.log(employee)
@@ -24,15 +24,11 @@ router.post('/add-employee', async (req, res) => {
     console.log(errormessage)
     if(errormessage){
       res.locals.errormessage = errormessage
-      res.render('newEmployee', employee ) 
+      res.render('new-employee', employee ) 
     } else {
-        await employeeData.addEmployee(employee)
-        // console.log(employee.NationalInsuranceNumber)
-
-        // console.log(await employeeData.getEmployee(employee.NationalInsuranceNumber))
-
-        // res.render('confirmation', { employee: await employeeData.getEmployee(employee.NationalInsuranceNumber)} )
-        res.render('hr-generate-report', {employees: await employeeData.getEmployees()}); 
+        let employeeID = await employeeData.addEmployee(employee)
+        var resultArray = Object.values(JSON.parse(JSON.stringify(await employeeData.getEmployee(employeeID))))
+        res.render('confirmation', { employee: resultArray })
     }
     
 })

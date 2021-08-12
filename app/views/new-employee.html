@@ -11,7 +11,7 @@ New Employee
       {% if errormessage %}
         <div class="govuk-error-message">{{ errormessage }}</div>
       {% endif %}
-      <form class="form" action="/add-employee" method="post">
+      <form class="form" action="/hr/add-employee" method="post">
 
         {% from "govuk/components/input/macro.njk" import govukInput %}
         {% from "govuk/components/select/macro.njk" import govukSelect %}
@@ -33,7 +33,7 @@ New Employee
             },
                 id: "Address",
                 name: "Address"
-        }) }}   
+        }) }} 
         {{ govukInput({
             label: {
                 text: "National Insurance Number:",

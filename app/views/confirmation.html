@@ -6,16 +6,50 @@
 
 {% block content %}
 
+  {{ govukBackLink({
+    text: "Back",
+    href: "/hr"
+  }) }}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       <div class="govuk-panel govuk-panel--confirmation">
         <h1 class="govuk-panel__title">Successfully added a new employee</h1>
         <div class="govuk-panel__body">
-          <p>{{employee[1].Name}}</p>
-          Employee Number: <br><strong>HDJ2123F</strong>
+          Employee Number: <br><strong>{{employee[0].EmployeeID}}</strong>
         </div>
       </div>
+      {% set name = employee[0].Name %}
+      {% set dep = employee[0].Department %}
+      {{ govukTable({
+      caption: "Employee details",
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Name"
+        },
+        {
+          text: "Department"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: name
+          },
+          {
+            text: dep
+          }
+        ]
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Add another employee?",
+      href: "/hr/add-employee",
+      isStartButton: false
+    }) }}
 
     </div>
   </div>

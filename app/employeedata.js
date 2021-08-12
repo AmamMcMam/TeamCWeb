@@ -37,8 +37,8 @@ function wrapDB (dbconfig) {
 
  exports.getEmployee = async (id) => {
      return await db.query(
-         "SELECT Name, Department"
-     + " FROM kart_Rachel.Employee WHERE NationalInsuranceNumber = ?", 
+         "SELECT EmployeeID, Name, Department"
+     + " FROM kart_Rachel.Employee WHERE EmployeeID = ?", 
                         [id]
      )
  }
@@ -57,9 +57,9 @@ function wrapDB (dbconfig) {
     }
   }
 
- exports.addEmployee = async (newEmployee) => {
+ exports.addEmployee = async (newemployee) => {
     let results = await db.query("INSERT INTO kart_Rachel.Employee SET ?", 
-                [newEmployee])
+                [newemployee])
     return results.insertId; 
 
 }
