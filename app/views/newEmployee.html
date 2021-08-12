@@ -1,0 +1,68 @@
+{% block pageTitle %}
+New Employee
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if errormessage %}
+        <div class="govuk-error-message">{{ errormessage }}</div>
+      {% endif %}
+      <form class="form" action="/addemployee" method="post">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukInput({
+            label: {
+                text: "Name:",
+                classes: "govuk-label--l",
+                isPageHeading: true
+            },
+                id: "name",
+                name: "name"
+        }) }}   
+        {{ govukInput({
+            label: {
+                text: "Address:",
+                classes: "govuk-label--l",
+                isPageHeading: true
+            },
+                id: "address",
+                name: "address"
+        }) }}   
+        {{ govukInput({
+            label: {
+                text: "National Insurance Number:",
+                classes: "govuk-label--l",
+                isPageHeading: true
+            },
+                id: "NInumber",
+                name: "NInumber"
+        }) }}  
+        {{ govukInput({
+            label: {
+                text: "Sort Code:",
+                classes: "govuk-label--l",
+                isPageHeading: true
+            },
+                id: "sortcode",
+                name: "sortcode"
+        }) }}  
+        {{ govukInput({
+            label: {
+                text: "Account Number:",
+                classes: "govuk-label--l",
+                isPageHeading: true
+            },
+                id: "accountnum",
+                name: "accountnum"
+        }) }}  
+        <button class="govuk-button" data-module="govuk-button">Submit</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
