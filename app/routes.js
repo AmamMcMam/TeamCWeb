@@ -8,6 +8,11 @@ router.get('/hr', async (req, res) => {
     res.render('hr-main'); 
 });
 
+router.get('/hr/generate-report', async (req, res) => {
+    res.render('hr-generate-report', {employees: await employeeData.getEmployees()}); 
+});
+
+
 module.exports = router
 
 
