@@ -58,6 +58,24 @@ New Employee
                 id: "accountnum",
                 name: "accountnum"
         }) }}  
+        {{ govukInput({
+            label: {
+                text: "Starting Salary:",
+                classes: "govuk-label--l",
+                isPageHeading: true
+            },
+                id: "startingsalary",
+                name: "startingsalary"
+        }) }}  
+        {{ govukInput({
+            label: {
+                text: "Employee Number:",
+                classes: "govuk-label--l",
+                isPageHeading: true
+            },
+                id: "empnum",
+                name: "empnum"
+        }) }} 
         <button class="govuk-button" data-module="govuk-button">Submit</button>
 
       </form>
