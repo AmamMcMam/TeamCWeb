@@ -22,17 +22,15 @@ function wrapDB (dbconfig) {
 
  getEmployees = async () => { 
     return await db.query( 
-        "SELECT EmployeeID, Name, Department"
-        + " FROM kart_Rachel.Employee", 
-        //change when schema is available
+        "SELECT EmployeeID, Name, Department, Address, NIN, Salary, IsDepartmentManager"
+        + " FROM Rachel_Database", 
         ) 
  }
 
  getEmployeesByDepartment = async ( departmentName ) => { 
     return await db.query( 
-        "SELECT EmployeeID, Name, Department"
+        "SELECT EmployeeID, Name, Department, Address, NIN, Salary, IsDepartmentManager"
         + " FROM Rachel_Database WHERE departmentName = ?", 
-        //change when schema is available
                             [departmentName]) 
  }
  
