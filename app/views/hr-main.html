@@ -1,8 +1,7 @@
-
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  GOV.UK Employee System
+  GOV.UK HR Team
 {% endblock %}
 
 {% block content %}
@@ -10,20 +9,20 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        The GOV.UK Employee System
+        The GOV.UK HR Team
       </h1>{{releaseVersion | log }}
-      <p>
-        Welcome to the GOV.UK Employee System.
-      </p>
 
-      <h2 class="govuk-heading-m">What team are you in?</h2>
+      <h2 class="govuk-heading-m">What action would you like to complete today?</h2>
 
       <ul class="govuk-list govuk-list--bullet">
         <li>
-          <a href="/hr">GOV.UK HR</a>
+          <a href="#">Add new employee</a>
         </li>
         <li>
-          <a href="#">GOV.UK Finance</a>
+          <a href="#">Add new sales employee</a>
+        </li>
+        <li>
+          <a href="#">Generate employee report</a>
         </li>
       </ul>
     </div>
