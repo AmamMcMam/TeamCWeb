@@ -1,5 +1,7 @@
 const mysql = require('mysql'); 
 const dbconfig = require('./dbconfig.json'); 
+const util = require ('util')
+
 
 const db = wrapDB(dbconfig)
 
@@ -21,7 +23,7 @@ function wrapDB (dbconfig) {
  getEmployees = async () => { 
     return await db.query( 
         "SELECT EmployeeID, Name, Department"
-        + " FROM Rachel_Database", 
+        + " FROM kart_Rachel.Employee", 
         //change when schema is available
         ) 
  }
