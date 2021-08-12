@@ -14,6 +14,7 @@ New Employee
       <form class="form" action="/add-employee" method="post">
 
         {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
 
         {{ govukInput({
             label: {
@@ -51,15 +52,30 @@ New Employee
                 id: "Salary",
                 name: "Salary"
         }) }}   
-        {{ govukInput({
-            label: {
-                text: "Department:",
-                classes: "govuk-label--l",
-                isPageHeading: true
-            },
-                id: "Department",
-                name: "Department"
-        }) }}  
+
+       
+
+{{ govukSelect({
+  id: "Department",
+  name: "Department",
+  label: {
+    text: "Department",
+    classes: "govuk-label--l",
+    isPageHeading: true
+
+  },
+  items: [
+    {
+      value: "HR",
+      text: "HR"
+    },
+    {
+      value: "Sales",
+      text: "Sales"
+    }
+  ]
+}) }}
+
         {{ govukRadios({
         classes: "govuk-radios--inline",
         idPrefix: "IsDepartmentManager",
