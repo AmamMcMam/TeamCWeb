@@ -16,11 +16,11 @@
         {% set employeerows = [] %} 
         {% for employee in employees %}
 
-        {% set employeerows = (employeerows.push([{ text: employee.name }, {text: employee.department}]), employeerows) %}
+        {% set employeerows = (employeerows.push([{ text: employee.EmployeeID },{ text: employee.Name }, {text: employee.Department}]), employeerows) %}
         {% endfor %}
 
         {{govukTable({ 
-            head: [ { text: "Name" },{ text: "Department" } ], 
+            head: [  { text: "Employee ID" },{ text: "Name" },{ text: "Department" } ], 
             rows: employeerows }) 
         }}
         
