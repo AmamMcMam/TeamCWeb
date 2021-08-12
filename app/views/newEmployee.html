@@ -44,38 +44,39 @@ New Employee
                 name: "NationalInsuranceNumber"
         }) }} 
         {{ govukInput({
+            id: "Salary",
+            name: "Salary",
             label: {
-                text: "Starting Salary:",
+                text: "Salary (Yearly):",
                 classes: "govuk-label--l",
                 isPageHeading: true
             },
-                id: "Salary",
-                name: "Salary"
-        }) }}   
+            prefix: {
+                text: "£"
+            },
+            classes: "govuk-input--width-5",
+            spellcheck: false
+        }) }} 
+        {{ govukSelect({
+        id: "Department",
+        name: "Department",
+        label: {
+            text: "Department",
+            classes: "govuk-label--l",
+            isPageHeading: true
 
-       
-
-{{ govukSelect({
-  id: "Department",
-  name: "Department",
-  label: {
-    text: "Department",
-    classes: "govuk-label--l",
-    isPageHeading: true
-
-  },
-  items: [
-    {
-      value: "HR",
-      text: "HR"
-    },
-    {
-      value: "Sales",
-      text: "Sales"
-    }
-  ]
-}) }}
-
+        },
+        items: [
+            {
+            value: "HR",
+            text: "HR"
+            },
+            {
+            value: "Sales",
+            text: "Sales"
+            }
+        ]
+        }) }}
         {{ govukRadios({
         classes: "govuk-radios--inline",
         idPrefix: "IsDepartmentManager",

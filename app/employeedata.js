@@ -47,6 +47,14 @@ function wrapDB (dbconfig) {
     if(employee.NationalInsuranceNumber.search(/^\s*[a-zA-Z]{2}(?:\s*\d\s*){6}[a-zA-Z]?\s*$/)){
        return "National insurance number is incorrect";
     }
+
+    if(employee.Salary < 7740){
+        return "Salary cannot be below 7740"
+    }
+
+    if(isNaN(employee.Salary)){
+        return "Salary must be a number"
+    }
   }
 
  exports.addEmployee = async (newEmployee) => {
