@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Confirmation page
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Successfully added a new employee</h1>
+        <div class="govuk-panel__body">
+          <p>{{employee[1].Name}}</p>
+          Employee Number: <br><strong>HDJ2123F</strong>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
