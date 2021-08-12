@@ -13,7 +13,7 @@ test('Test an incorrect value in National Insurance Number input', () => {
 test('Test a correct value in National Insurance Number input', () => {
     const emp = {NationalInsuranceNumber: 'Aa123456a'}
     const result = Employee.validate(emp)
-    expect(result).toBe(undefined)
+    expect(result).toBe('Salary must be a number')
 })
 
 
