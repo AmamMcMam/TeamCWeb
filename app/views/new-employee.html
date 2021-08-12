@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+New Employee
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if errormessage %}
+        <div class="govuk-error-message">{{ errormessage }}</div>
+      {% endif %}
+      <form class="form" action="/hr/add-employee" method="post">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukInput({
+            label: {
+                text: "Name:",
+                classes: "govuk-label--l",
+                isPageHeading: true
+            },
+                id: "Name",
+                name: "Name"
+        }) }}   
+        {{ govukInput({
+            label: {
+                text: "Address:",
+                classes: "govuk-label--l",
+                isPageHeading: true
+            },
+                id: "Address",
+                name: "Address"
+        }) }} 
+        {{ govukInput({
+            label: {
+                text: "National Insurance Number:",
+                classes: "govuk-label--l",
+                isPageHeading: true
+            },
+                id: "NationalInsuranceNumber",
+                name: "NationalInsuranceNumber"
+        }) }} 
+        {{ govukInput({
+            id: "Salary",
+            name: "Salary",
+            label: {
+                text: "Salary (Yearly):",
+                classes: "govuk-label--l",
+                isPageHeading: true
+            },
+            prefix: {
+                text: "£"
+            },
+            classes: "govuk-input--width-5",
+            spellcheck: false
+        }) }} 
+        {{ govukSelect({
+        id: "Department",
+        name: "Department",
+        label: {
+            text: "Department",
+            classes: "govuk-label--l",
+            isPageHeading: true
+
+        },
+        items: [
+            {
+            value: "HR",
+            text: "HR"
+            },
+            {
+            value: "Sales",
+            text: "Sales"
+            }
+        ]
+        }) }}
+        {{ govukRadios({
+        classes: "govuk-radios--inline",
+        idPrefix: "IsDepartmentManager",
+        name: "IsDepartmentManager",
+        fieldset: {
+            legend: {
+            text: "Are they a manager?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+            }
+        },
+        items: [
+            {
+            value: 1,
+            text: "Yes"
+            },
+            {
+            value: 0,
+            text: "No"
+            }
+        ]
+        }) }} 
+
+
+        <button class="govuk-button" data-module="govuk-button">Submit</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

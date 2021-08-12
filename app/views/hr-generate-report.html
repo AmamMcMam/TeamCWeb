@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK HR Team
+{% endblock %}
+
+{% block content %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "/hr"
+  }) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Generate Employee Report
+        
+      <h2 class="govuk-heading-m">List of employees per department</h2>
+        {% if employees and employees.length > 0 %} 
+        {% set employeerows = [] %} 
+        {% for employee in employees %}
+
+        {% set employeerows = (employeerows.push([{ text: employee.EmployeeID },{ text: employee.Name }, {text: employee.Department}]), employeerows) %}
+        {% endfor %}
+
+        {{govukTable({ 
+            head: [  { text: "Employee ID" },{ text: "Name" },{ text: "Department" } ], 
+            rows: employeerows }) 
+        }}
+        
+        {% else %} 
+        There are no employees. 
+        {% endif %}
+    </div>
+  </div>
+
+{% endblock %}
